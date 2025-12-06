@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { AlertTriangle, Shield, Zap, CheckCircle, Clock } from 'lucide-react';
-import type { Icon } from 'lucide-react';
 import clsx from 'clsx';
+import type { ComponentType } from 'react';
 
 // ✅ Define allowed colors
 type AlertColor = 'yellow' | 'red' | 'green' | 'blue';
@@ -13,7 +13,7 @@ interface Alert {
   title: string;
   description: string;
   time: string;
-  icon: Icon;
+  icon: ComponentType<{ className?: string }>;
   color: AlertColor;
 }
 
