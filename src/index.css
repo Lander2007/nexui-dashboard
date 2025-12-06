@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  --color-nexlytix-50: #f8f7ff;
+  --color-nexlytix-100: #f0edff;
+  --color-nexlytix-200: #e4ddff;
+  --color-nexlytix-300: #d1c2ff;
+  --color-nexlytix-400: #b899ff;
+  --color-nexlytix-500: #9d70ff;
+  --color-nexlytix-600: #8b47ff;
+  --color-nexlytix-700: #7c2dff;
+  --color-nexlytix-800: #6b1fff;
+  --color-nexlytix-900: #5a0fff;
+
+  --color-dark-50: #f9fafb;
+  --color-dark-100: #f3f4f6;
+  --color-dark-200: #e5e7eb;
+  --color-dark-300: #d1d5db;
+  --color-dark-400: #9ca3af;
+  --color-dark-500: #6b7280;
+  --color-dark-600: #4b5563;
+  --color-dark-700: #374151;
+  --color-dark-800: #1f2937;
+  --color-dark-900: #111827;
+  --color-dark-950: #0a0a0a;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-950 text-white antialiased;
+    font-family: 'Share Tech', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  code, pre {
+    font-family: 'Share Tech', 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  /* Glass effect card */
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl;
+  }
+
+  /* Gradient border container */
+  .gradient-border {
+    @apply relative overflow-hidden;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-lg p-[1px] bg-gradient-to-r from-nexlytix-500 to-nexlytix-700;
+
+    /* Ensure compatibility across browsers */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude; /* standard property for broader compatibility */
+  }
+
+  /* Mesh pattern background */
+  .mesh-pattern {
+    background-image:
+      radial-gradient(circle at 25px 25px, rgba(157, 112, 255, 0.1) 2px, transparent 0),
+      radial-gradient(circle at 75px 75px, rgba(157, 112, 255, 0.05) 2px, transparent 0);
+    background-size: 100px 100px;
+  }
+
+  /* Select dropdown styling */
+  select {
+    color: white;
+  }
+
+  select option {
+    background-color: #1f2937;
+    color: white;
+    padding: 8px;
+  }
+
+  select option:hover {
+    background-color: #374151;
+  }
+}
